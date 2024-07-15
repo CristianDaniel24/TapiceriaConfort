@@ -1,11 +1,11 @@
 package Proyecto.TapiceriaConfort.entities;
 
-public class Product{
+public class Product {
 
     private String name;
     private Double price;
     private int stock;
 
-    public void displayDetails(){
+    public void displayDetails() {
     }
 }
