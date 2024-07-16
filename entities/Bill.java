@@ -4,9 +4,25 @@ import java.time.LocalDateTime;
 
 public class Bill {
 
-    private long id;
+    private Long id;
     private LocalDateTime date;
 
-    public void generateBill(){
+    public Long getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id = id;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate() {
+        this.date = date;
+    }
+
+    public void generateBill() {
     }
 }
