@@ -1,9 +1,14 @@
 package Proyecto.TapiceriaConfort.entities;
 
-public abstract class Person {
+import Proyecto.TapiceriaConfort.storage.Storable;
+
+public abstract class Person implements Storable {
     private String name;
     private String email;
     private Integer phoneNumber;
+
+    public Person() {
+    }
 
     public Person(String name, String email, Integer phoneNumber) {
         this.name = name;
@@ -33,5 +38,15 @@ public abstract class Person {
 
     public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String serialize() {
+        return name + "," + email + "," + phoneNumber;
+    }
+
+    @Override
+    public Storable deserialize(String line) {
+        return null;
     }
 }

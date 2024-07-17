@@ -5,8 +5,7 @@ import Proyecto.TapiceriaConfort.enums.ServiceStatus;
 import java.time.LocalDateTime;
 
 public class Service {
-
-    private int id;
+    private Long id;
     private String name;
     private Double price;
     private ServiceStatus status;
@@ -15,11 +14,11 @@ public class Service {
     private LocalDateTime finishedAt;
     private Bill bill;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
-
-    public void setId(int id) {
+    
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -80,6 +79,7 @@ public class Service {
     }
 
     public void startService() {
+        System.out.println("Starting service...");
     }
 
     public void finishService() {

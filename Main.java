@@ -1,9 +1,11 @@
 package Proyecto.TapiceriaConfort;
 
+import Proyecto.TapiceriaConfort.constants.StorageConstants;
 import Proyecto.TapiceriaConfort.entities.Customer;
 import Proyecto.TapiceriaConfort.entities.Employee;
 import Proyecto.TapiceriaConfort.entities.Person;
 import Proyecto.TapiceriaConfort.entities.Provider;
+import Proyecto.TapiceriaConfort.storage.GenericStorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,9 @@ public class Main {
         List<Person> personList = new ArrayList<>();
         // TODO: INITIALIZE DATA
         personList.add(new Customer("demo", "demo@d.com", 123, 1L));
-        
+
+        GenericStorage<Employee> employeeStorage = new GenericStorage<>(StorageConstants.EMPLOYEE_STORAGE);
+
         Menu menu = new Menu(scanner);
         menu.displayMainMenu();
 
@@ -29,9 +33,9 @@ public class Main {
                 System.out.println("person valid");
                 Person person = personSearch.get();
                 switch (person) {
-                    case Customer customer -> menu.displayCustomerMenu();
-                    case Employee employee -> menu.displayEmployeeMenu();
-                    case Provider provider -> menu.displayProviderMenu();
+                    case Customer customer -> menu.displayMenu(customer);
+                    case Employee employee -> menu.displayMenu(employee);
+                    case Provider provider -> menu.displayMenu(provider);
                     default -> {
                     }
                 }
