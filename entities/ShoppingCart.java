@@ -17,7 +17,7 @@ public class ShoppingCart {
         return id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -25,7 +25,7 @@ public class ShoppingCart {
         return createdAt;
     }
 
-    public void setCreatedAt() {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -33,7 +33,7 @@ public class ShoppingCart {
         return status;
     }
 
-    public void setStatus() {
+    public void setStatus(ShoppingCartStatus status) {
         this.status = status;
     }
 
@@ -41,7 +41,7 @@ public class ShoppingCart {
         return product;
     }
 
-    public void setProduct() {
+    public void setProduct(List<Product> product) {
         this.product = product;
     }
 
@@ -49,7 +49,7 @@ public class ShoppingCart {
         return bill;
     }
 
-    public void setBill() {
+    public void setBill(Bill bill) {
         this.bill = bill;
     }
 

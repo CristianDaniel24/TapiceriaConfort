@@ -11,7 +11,7 @@ public class Bill {
         return id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -19,7 +19,7 @@ public class Bill {
         return date;
     }
 
-    public void setDate() {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

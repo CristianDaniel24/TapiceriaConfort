@@ -19,7 +19,7 @@ public class Service {
         return id;
     }
 
-    public void setId() {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -27,7 +27,7 @@ public class Service {
         return name;
     }
 
-    public void setName() {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -35,7 +35,7 @@ public class Service {
         return price;
     }
 
-    public void setPrice() {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -43,7 +43,7 @@ public class Service {
         return status;
     }
 
-    public void setStatus() {
+    public void setStatus(ServiceStatus status) {
         this.status = status;
     }
 
@@ -51,7 +51,7 @@ public class Service {
         return createdAt;
     }
 
-    public void setCreatedAt() {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -59,7 +59,7 @@ public class Service {
         return startedAt;
     }
 
-    public void setStartedAt() {
+    public void setStartedAt(LocalDateTime startedAt) {
         this.startedAt = startedAt;
     }
 
@@ -67,7 +67,7 @@ public class Service {
         return finishedAt;
     }
 
-    public void setFinishedAt() {
+    public void setFinishedAt(LocalDateTime finishedAt) {
         this.finishedAt = finishedAt;
     }
 
@@ -75,7 +75,7 @@ public class Service {
         return bill;
     }
 
-    public void setBill() {
+    public void setBill(Bill bill) {
         this.bill = bill;
     }
 

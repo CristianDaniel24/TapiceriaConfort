@@ -27,7 +27,6 @@ public class Menu {
 
     public void displayCustomerMenu() {
         System.out.println("Customer menu");
-
     }
 
     public void displayEmployeeMenu() {

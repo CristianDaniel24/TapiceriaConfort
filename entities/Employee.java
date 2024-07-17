@@ -25,7 +25,7 @@ public class Employee extends Person {
         return salary;
     }
 
-    public void setSalary() {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -33,7 +33,7 @@ public class Employee extends Person {
         return services;
     }
 
-    public void setServices() {
+    public void setServices(List<Service> services) {
         this.services = services;
     }
 

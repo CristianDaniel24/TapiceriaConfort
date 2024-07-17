@@ -14,7 +14,7 @@ public class Customer extends Person {
         return id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -22,7 +22,7 @@ public class Customer extends Person {
         return shoppingCart;
     }
 
-    public void setShoppingCart() {
+    public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
@@ -30,7 +30,7 @@ public class Customer extends Person {
         return service;
     }
 
-    public void setService() {
+    public void setService(Service service) {
         this.service = service;
     }
 

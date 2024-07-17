@@ -17,7 +17,7 @@ public class Provider extends Person {
         return companyName;
     }
 
-    public void setCompanyName() {
+    public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
@@ -25,7 +25,7 @@ public class Provider extends Person {
         return address;
     }
 
-    public void setAddress() {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -33,7 +33,7 @@ public class Provider extends Person {
         return product;
     }
 
-    public void setProduct() {
+    public void setProduct(List<Product> product) {
         this.product = product;
     }
 
