@@ -3,6 +3,7 @@ package Proyecto.TapiceriaConfort.entities;
 import Proyecto.TapiceriaConfort.storage.Storable;
 
 public abstract class Person implements Storable {
+    private Long id;
     private String name;
     private String email;
     private Integer phoneNumber;
@@ -10,10 +11,19 @@ public abstract class Person implements Storable {
     public Person() {
     }
 
-    public Person(String name, String email, Integer phoneNumber) {
+    public Person(Long id, String name, String email, Integer phoneNumber) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -42,7 +52,7 @@ public abstract class Person implements Storable {
 
     @Override
     public String serialize() {
-        return name + "," + email + "," + phoneNumber;
+        return this.id + "," + this.name + "," + this.email + "," + this.phoneNumber;
     }
 
     @Override

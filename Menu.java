@@ -35,7 +35,29 @@ public class Menu {
     }
 
     public void displayMenu(Employee employee) {
-        System.out.println("Employee menu: " + employee.getName());
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nWelcome " + employee.getName());
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("Select an option: ");
+            System.out.println("    1. View list of services");
+            System.out.println("    2. Perform service");
+            System.out.println("    3. Exit");
+
+            String option = scanner.nextLine();
+            switch (option) {
+                case "1":
+                    System.out.println("Look for the list of services");
+                    break;
+                case "2":
+                    System.out.println("Please enter the id of the service: ");
+                    Long serviceId = scanner.nextLong();
+                    employee.performService(serviceId);
+                    break;
+                default:
+                    exit = true;
+            }
+        }
     }
 
 }

@@ -1,21 +1,16 @@
 package Proyecto.TapiceriaConfort.entities;
 
-public class Customer extends Person {
-    private Long id;
+import Proyecto.TapiceriaConfort.storage.Storable;
+
+public class Customer extends Person implements Storable {
     private ShoppingCart shoppingCart;
     private Service service;
 
-    public Customer(String name, String email, Integer phoneNumber, Long id) {
-        super(name, email, phoneNumber);
-        this.id = id;
+    public Customer() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Customer(Long id, String name, String email, Integer phoneNumber) {
+        super(id, name, email, phoneNumber);
     }
 
     public ShoppingCart getShoppingCart() {
@@ -38,5 +33,16 @@ public class Customer extends Person {
     }
 
     public void requestService() {
+    }
+
+    @Override
+    public String serialize() {
+        return super.serialize();
+    }
+
+    @Override
+    public Storable deserialize(String line) {
+        String[] fields = line.split(",");
+        return new Customer(Long.valueOf(fields[0]), fields[1], fields[2], Integer.valueOf(fields[3]));
     }
 }

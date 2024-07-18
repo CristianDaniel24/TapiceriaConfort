@@ -5,6 +5,7 @@ public class Product {
     private String name;
     private Double price;
     private int stock;
+    private Long providerId;
 
     public String getName() {
         return name;

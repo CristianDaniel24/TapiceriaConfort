@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class GenericStorage<T extends Storable> {
     private final String storagePath;
@@ -37,4 +38,21 @@ public class GenericStorage<T extends Storable> {
             throw new RuntimeException(e);
         }
     }
+
+    public void update(T factory, Predicate<T> condition, T newItem) {
+        List<T> items = load(factory);
+        try (FileWriter writer = new FileWriter(this.storagePath, false)) {
+            for (T item : items) {
+                if (condition.test(item)) {
+                    writer.write(newItem.serialize() + System.lineSeparator());
+                } else {
+                    writer.write(item.serialize() + System.lineSeparator());
+                }
+            }
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

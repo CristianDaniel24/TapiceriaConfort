@@ -1,14 +1,19 @@
 package Proyecto.TapiceriaConfort.entities;
 
+import Proyecto.TapiceriaConfort.storage.Storable;
+
 import java.util.List;
 
-public class Provider extends Person {
+public class Provider extends Person implements Storable {
     private String companyName;
     private String address;
     private List<Product> product;
 
-    public Provider(String name, String email, Integer phoneNumber, String companyName, String address) {
-        super(name, email, phoneNumber);
+    public Provider() {
+    }
+
+    public Provider(Long id, String name, String email, Integer phoneNumber, String companyName, String address) {
+        super(id, name, email, phoneNumber);
         this.companyName = companyName;
         this.address = address;
     }
@@ -38,5 +43,16 @@ public class Provider extends Person {
     }
 
     public void supplyProduct() {
+    }
+
+    @Override
+    public String serialize() {
+        return super.serialize() + "," + this.companyName + "," + this.address;
+    }
+
+    @Override
+    public Storable deserialize(String line) {
+        String[] fields = line.split(",");
+        return new Provider(Long.valueOf(fields[0]), fields[1], fields[2], Integer.valueOf(fields[3]), fields[4], fields[5]);
     }
 }

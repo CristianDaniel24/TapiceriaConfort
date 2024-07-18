@@ -12,8 +12,8 @@ public class Employee extends Person implements Storable {
     public Employee() {
     }
 
-    public Employee(String name, String email, Integer phoneNumber, String position, Double salary) {
-        super(name, email, phoneNumber);
+    public Employee(Long id, String name, String email, Integer phoneNumber, String position, Double salary) {
+        super(id, name, email, phoneNumber);
         this.position = position;
         this.salary = salary;
     }
@@ -42,6 +42,10 @@ public class Employee extends Person implements Storable {
         this.services = services;
     }
 
+    public void performService(Long serviceId) {
+        System.out.println("Performing service with id: " + serviceId);
+    }
+
     @Override
     public String serialize() {
         return super.serialize() + "," + position + "," + salary;
@@ -50,6 +54,6 @@ public class Employee extends Person implements Storable {
     @Override
     public Storable deserialize(String line) {
         String[] fields = line.split(",");
-        return new Employee(fields[0], fields[1], Integer.valueOf(fields[2]), fields[3], Double.valueOf(fields[4]));
+        return new Employee(Long.valueOf(fields[0]), fields[1], fields[2], Integer.valueOf(fields[3]), fields[4], Double.valueOf(fields[5]));
     }
 }
