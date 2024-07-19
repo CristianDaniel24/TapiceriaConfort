@@ -1,26 +1,19 @@
 package Proyecto.TapiceriaConfort;
 
-import Proyecto.TapiceriaConfort.constants.StorageConstants;
+import Proyecto.TapiceriaConfort.constants.EntityStorage;
 import Proyecto.TapiceriaConfort.entities.Customer;
 import Proyecto.TapiceriaConfort.entities.Employee;
 import Proyecto.TapiceriaConfort.entities.Person;
 import Proyecto.TapiceriaConfort.entities.Provider;
-import Proyecto.TapiceriaConfort.storage.GenericStorage;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        GenericStorage<Employee> employeeStorage = new GenericStorage<>(StorageConstants.EMPLOYEE_STORAGE);
-        List<Person> personList = new LinkedList<>(employeeStorage.load(new Employee()));
-
-        GenericStorage<Customer> customerStorage = new GenericStorage<>(StorageConstants.CUSTOMER_STORAGE);
-        personList.addAll(customerStorage.load(new Customer()));
-
-        GenericStorage<Provider> providerStorage = new GenericStorage<>(StorageConstants.PROVIDER_STORAGE);
-        personList.addAll(providerStorage.load(new Provider()));
+        List<Person> personList = new LinkedList<>(EntityStorage.employeeStorage.findAll(new Employee()));
+        personList.addAll(EntityStorage.customerStorage.findAll(new Customer()));
+        personList.addAll(EntityStorage.providerStorage.findAll(new Provider()));
 
         Menu menu = new Menu(scanner);
         menu.displayMainMenu();

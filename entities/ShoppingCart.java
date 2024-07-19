@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class ShoppingCart {
-
     private Long id;
     private LocalDateTime createdAt;
     private ShoppingCartStatus status;
