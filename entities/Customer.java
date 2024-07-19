@@ -34,7 +34,9 @@ public class Customer extends Person implements Storable {
     }
 
     public void requestService() {
-        System.out.println("Solicitando servicio");
+        System.out.println("Detalles sobre el servicio:" +
+                "\nNombre: " + this.service.getName() +
+                "\nId: " + getId());
     }
 
     @Override

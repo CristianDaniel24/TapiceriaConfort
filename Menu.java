@@ -3,6 +3,7 @@ package Proyecto.TapiceriaConfort;
 import Proyecto.TapiceriaConfort.entities.Customer;
 import Proyecto.TapiceriaConfort.entities.Employee;
 import Proyecto.TapiceriaConfort.entities.Provider;
+import Proyecto.TapiceriaConfort.entities.Service;
 
 import java.util.Scanner;
 
@@ -68,11 +69,16 @@ public class Menu {
                     customer.buyProduct();
                     break;
                 case 2:
+                    System.out.println("Ingrese el nombre del servicio que desea:");
+                    scanner.nextLine();
+                    customer.setService(new Service());
+                    customer.getService().setName(scanner.nextLine());
                     customer.requestService();
                     break;
                 case 3:
                     exit = true;
                     break;
+                // TODO: Crear un caso para que pueda agregar productos y eliminar en el carrito de compras
                 default:
                     System.out.println("Seleccion invalida");
             }
