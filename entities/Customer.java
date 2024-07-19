@@ -35,8 +35,10 @@ public class Customer extends Person {
     }
 
     public void buyProduct() {
+        System.out.println("Comprando producto..");
     }
 
     public void requestService() {
+        System.out.println("Solicitando servicio");
     }
 }

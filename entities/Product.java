@@ -31,5 +31,9 @@ public class Product {
     }
 
     public void displayDetails() {
+        System.out.println("los detalles del productos son:" +
+                "\nName: " + name +
+                "\nPrice: " + price +
+                "\nStock: " + stock);
     }
 }

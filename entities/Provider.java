@@ -38,5 +38,6 @@ public class Provider extends Person {
     }
 
     public void supplyProduct() {
+        System.out.println("Proveer Producto");
     }
 }

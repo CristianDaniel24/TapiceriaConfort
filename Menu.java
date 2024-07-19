@@ -26,12 +26,57 @@ public class Menu {
     }
 
     public void displayMenu(Provider provider) {
-        System.out.println("Provider menu " + provider.getName());
+
+
+        //MENU PROVIDER
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("\nMenu del Proveedor");
+            System.out.println("1. Proveer producto");
+            System.out.println("2. Detalles del proveedor");
+            System.out.println("3. Exit");
+            System.out.print("Ingresa una opcion: ");
+            int resultado = scanner.nextInt();
+            switch (resultado) {
+                case 1:
+                    provider.supplyProduct();
+                    break;
+                case 2:
+                    System.out.println("Detalles del proveedor");
+                    break;
+                case 3:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Seleccion invalida");
+            }
+        }
     }
 
     public void displayMenu(Customer customer) {
-        System.out.println("Customer menu: " + customer.getName());
-
+        //MENU CUSTOMER
+        boolean exit = false;
+        while (!exit) {
+            System.out.println("\nMenu del Cliente");
+            System.out.println("1. Comprar producto");
+            System.out.println("2. Solicitar un servicio");
+            System.out.println("3. Exit");
+            System.out.print("Ingresa una opcion: ");
+            int resultado = scanner.nextInt();
+            switch (resultado) {
+                case 1:
+                    customer.buyProduct();
+                    break;
+                case 2:
+                    customer.requestService();
+                    break;
+                case 3:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Seleccion invalida");
+            }
+        }
     }
 
     public void displayMenu(Employee employee) {

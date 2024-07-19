@@ -19,6 +19,8 @@ public class Main {
         // TODO: INITIALIZE DATA
         personList.add(new Customer("demo", "demo@d.com", 123, 1L));
 
+        personList.add(new Provider("Javier", "javier@d.com", 12352353, "Telamax", "Calle 14"));
+
         GenericStorage<Employee> employeeStorage = new GenericStorage<>(StorageConstants.EMPLOYEE_STORAGE);
 
         Menu menu = new Menu(scanner);
