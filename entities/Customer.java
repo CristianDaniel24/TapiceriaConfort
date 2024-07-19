@@ -1,5 +1,6 @@
 package Proyecto.TapiceriaConfort.entities;
 
+import Proyecto.TapiceriaConfort.constants.EntityStorage;
 import Proyecto.TapiceriaConfort.storage.Storable;
 
 public class Customer extends Person implements Storable {
@@ -7,10 +8,13 @@ public class Customer extends Person implements Storable {
     private Service service;
 
     public Customer() {
+        this.service = new Service();
     }
 
-    public Customer(Long id, String name, String email, Integer phoneNumber) {
+    public Customer(Long id, String name, String email, Integer phoneNumber, ShoppingCart shoppingCart, Service service) {
         super(id, name, email, phoneNumber);
+        this.shoppingCart = shoppingCart;
+        this.service = service;
     }
 
     public ShoppingCart getShoppingCart() {
@@ -34,6 +38,10 @@ public class Customer extends Person implements Storable {
     }
 
     public void requestService() {
+        System.out.println("Saving service...");
+        this.service.setUserId(this.getId());
+        EntityStorage.serviceStorage.save(this.service);
+        System.out.println("Service saved");
         System.out.println("Detalles sobre el servicio:" +
                 "\nNombre: " + this.service.getName() +
                 "\nId: " + getId());
@@ -41,12 +49,13 @@ public class Customer extends Person implements Storable {
 
     @Override
     public String serialize() {
-        return super.serialize();
+        return super.serialize() + "," + this.service.getId();
     }
 
     @Override
     public Storable deserialize(String line) {
         String[] fields = line.split(",");
-        return new Customer(Long.valueOf(fields[0]), fields[1], fields[2], Integer.valueOf(fields[3]));
+        Service dsService = EntityStorage.serviceStorage.find(new Service(), Service -> service.getId().equals(Long.valueOf(fields[4]))).orElse(null);
+        return new Customer(Long.valueOf(fields[0]), fields[1], fields[2], Integer.valueOf(fields[3]), new ShoppingCart(), dsService);
     }
 }

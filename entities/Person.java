@@ -9,6 +9,7 @@ public abstract class Person implements Storable {
     private Integer phoneNumber;
 
     public Person() {
+        this.id = 0L;
     }
 
     public Person(Long id, String name, String email, Integer phoneNumber) {

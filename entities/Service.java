@@ -21,6 +21,9 @@ public class Service implements Storable {
     private Long userId;
 
     public Service() {
+        this.id = 1234L;
+        this.price = 0.0;
+        this.status = ServiceStatus.NOT_STARTED;
         this.bill = new Bill();
     }
 
@@ -120,13 +123,16 @@ public class Service implements Storable {
 
     @Override
     public String serialize() {
+        String createdAtString = this.createdAt != null ? this.createdAt.format(formatter) : "";
+        String startedAtString = this.startedAt != null ? this.startedAt.format(formatter) : "";
+        String finishedAtString = this.finishedAt != null ? this.finishedAt.format(formatter) : "";
         return this.id + ","
                 + this.name + ","
                 + this.price + ","
                 + this.status + ","
-                + this.createdAt.format(formatter) + ","
-                + this.startedAt.format(formatter) + ","
-                + this.finishedAt + ","
+                + createdAtString + ","
+                + startedAtString + ","
+                + finishedAtString + ","
                 + this.bill.getId() + ","
                 + this.userId;
     }
@@ -141,11 +147,15 @@ public class Service implements Storable {
                 fields[1],
                 Double.valueOf(fields[2]),
                 ServiceStatus.valueOf(fields[3]),
-                LocalDateTime.parse(fields[4], formatter),
-                LocalDateTime.parse(fields[5], formatter),
-                LocalDateTime.parse(fields[6], formatter),
+                parseDate(fields[4]),
+                parseDate(fields[5]),
+                parseDate(fields[6]),
                 dsBill,
                 Long.valueOf(fields[8])
         );
+    }
+
+    private LocalDateTime parseDate(String value) {
+        return value.isEmpty() ? null : LocalDateTime.parse(value, formatter);
     }
 }
