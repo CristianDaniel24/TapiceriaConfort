@@ -43,6 +43,7 @@ public class Provider extends Person implements Storable {
     }
 
     public void supplyProduct() {
+        System.out.println("Proveer Producto");
     }
 
     @Override

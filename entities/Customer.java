@@ -30,9 +30,11 @@ public class Customer extends Person implements Storable {
     }
 
     public void buyProduct() {
+        System.out.println("Comprando producto..");
     }
 
     public void requestService() {
+        System.out.println("Solicitando servicio");
     }
 
     @Override
