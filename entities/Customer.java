@@ -39,7 +39,6 @@ public class Customer extends Person implements Storable {
     }
 
     public void requestService() {
-        System.out.println("Saving service...");
         this.service.setUserId(this.getId());
         EntityStorage.serviceStorage.save(this.service);
         System.out.println("Service saved");
