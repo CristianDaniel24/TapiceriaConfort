@@ -60,7 +60,8 @@ public class Menu {
             System.out.println("2. Solicitar un servicio");
             System.out.println("3. Agregar item");
             System.out.println("4. Eliminar item");
-            System.out.println("5. Exit");
+            System.out.println("5. Mostrar los items");
+            System.out.println("6. Exit");
             System.out.print("Ingresa una opcion: ");
             int resultado = scanner.nextInt();
             switch (resultado) {
@@ -75,20 +76,38 @@ public class Menu {
                     customer.requestService();
                     break;
                 case 3:
+                    scanner.nextLine();
                     System.out.println("Agregando Producto...");
                     System.out.println("Ingresa el producto que desas agregar:");
                     String productoAgregado = scanner.nextLine();
                     Product producto = new Product(productoAgregado);
                     customer.getShoppingCart().addProduct(producto);
                     System.out.println("El producto fue agregado correctamnete");
+                    System.out.println("La cantidad de productos del carrito son: " + customer.getShoppingCart().getProduct().size());
                     break;
                 case 4:
+                    scanner.nextLine();
                     System.out.println("Eliminando Producto..");
+                    System.out.println("Ingresa el producto que deseas eliminar");
+                    String productoEliminado = scanner.nextLine();
+                    Product product = new Product(productoEliminado);
+                    customer.getShoppingCart().removeProduct(product);
+                    System.out.println("El producto fue eliminado con exito");
+                    System.out.println("La cantidad de productos restantes del carrito son: " + customer.getShoppingCart().getProduct().size());
                     break;
                 case 5:
+                    scanner.nextLine();
+                    if (customer.getShoppingCart().getProduct().size() > 0) {
+                        for (int i = 0; i < customer.getShoppingCart().getProduct().size(); i++) {
+                            System.out.println(customer.getShoppingCart().getProduct().get(i));
+                        }
+                    } else {
+                        System.out.println("El carrito esta vacio :(");
+                    }
+                    break;
+                case 6:
                     exit = true;
                     break;
-                // TODO: Crear un caso para que pueda agregar productos y eliminar en el carrito de compras
                 default:
                     System.out.println("Seleccion invalida");
             }

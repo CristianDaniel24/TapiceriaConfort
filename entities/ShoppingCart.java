@@ -67,6 +67,7 @@ public class ShoppingCart {
         this.products.add(product);
     }
 
-    public void removeProduct() {
+    public void removeProduct(Product product) {
+        this.products.remove(product);
     }
 }
