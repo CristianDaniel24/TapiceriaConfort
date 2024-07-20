@@ -4,6 +4,7 @@ import Proyecto.TapiceriaConfort.storage.Storable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
 public class Bill implements Storable {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -11,6 +12,7 @@ public class Bill implements Storable {
     private LocalDateTime date;
 
     public Bill() {
+        this.id = new Random().nextLong();
     }
 
     public Bill(Long id, LocalDateTime date) {
