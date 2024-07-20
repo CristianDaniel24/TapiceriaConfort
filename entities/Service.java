@@ -121,11 +121,19 @@ public class Service implements Storable {
     public void completeService() {
     }
 
+    public void displayDetails() {
+        System.out.println("Service details are: ");
+        System.out.println("    Name: " + this.name);
+        System.out.println("    Price: " + this.price);
+        System.out.println("    Status: " + this.status);
+    }
+
     @Override
     public String serialize() {
         String createdAtString = this.createdAt != null ? this.createdAt.format(formatter) : "";
         String startedAtString = this.startedAt != null ? this.startedAt.format(formatter) : "";
         String finishedAtString = this.finishedAt != null ? this.finishedAt.format(formatter) : "";
+        Long serializedBill = this.bill == null ? 0L : this.bill.getId();
         return this.id + ","
                 + this.name + ","
                 + this.price + ","
@@ -133,7 +141,7 @@ public class Service implements Storable {
                 + createdAtString + ","
                 + startedAtString + ","
                 + finishedAtString + ","
-                + this.bill.getId() + ","
+                + serializedBill + ","
                 + this.userId;
     }
 

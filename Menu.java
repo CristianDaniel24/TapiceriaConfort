@@ -1,5 +1,6 @@
 package Proyecto.TapiceriaConfort;
 
+import Proyecto.TapiceriaConfort.constants.EntityStorage;
 import Proyecto.TapiceriaConfort.entities.*;
 
 import java.util.Scanner;
@@ -68,11 +69,13 @@ public class Menu {
                     customer.buyProduct();
                     break;
                 case 2:
-                    System.out.println("Ingrese el nombre del servicio que desea:");
+                    System.out.println("Enter the name of the service: ");
                     scanner.nextLine();
                     customer.setService(new Service());
                     customer.getService().setName(scanner.nextLine());
                     customer.requestService();
+                    System.out.println("Service created");
+                    customer.getService().displayDetails();
                     break;
                 case 3:
                     System.out.println("Agregando Producto...");
@@ -109,14 +112,20 @@ public class Menu {
             switch (option) {
                 case "1":
                     System.out.println("Look for the list of services");
+                    EntityStorage.serviceStorage.findAll(new Service()).forEach(service -> {
+                        System.out.println("Id: " + service.getId() + " -- " + "Name: " + service.getName() + " -- " + "Status: " + service.getStatus());
+                    });
                     break;
                 case "2":
                     System.out.println("Please enter the id of the service: ");
-                    Long serviceId = scanner.nextLong();
+                    Long serviceId = Long.valueOf(scanner.nextLine());
                     employee.performService(serviceId);
                     break;
-                default:
+                case "3":
                     exit = true;
+                    break;
+                default:
+                    System.out.println("Please enter a valid option");
             }
         }
     }
