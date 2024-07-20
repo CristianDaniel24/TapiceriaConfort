@@ -58,8 +58,8 @@ public class ShoppingCart {
     public void clearCart() {
     }
 
-    public void addProduct() {
-        
+    public void addProduct(Product product) {
+        this.product.add(product);
     }
 
     public void removeProduct() {

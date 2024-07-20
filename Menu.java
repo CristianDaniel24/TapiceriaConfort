@@ -1,9 +1,6 @@
 package Proyecto.TapiceriaConfort;
 
-import Proyecto.TapiceriaConfort.entities.Customer;
-import Proyecto.TapiceriaConfort.entities.Employee;
-import Proyecto.TapiceriaConfort.entities.Provider;
-import Proyecto.TapiceriaConfort.entities.Service;
+import Proyecto.TapiceriaConfort.entities.*;
 
 import java.util.Scanner;
 
@@ -61,7 +58,9 @@ public class Menu {
             System.out.println("\nMenu del Cliente");
             System.out.println("1. Comprar producto");
             System.out.println("2. Solicitar un servicio");
-            System.out.println("3. Exit");
+            System.out.println("3. Agregar item");
+            System.out.println("4. Eliminar item");
+            System.out.println("5. Exit");
             System.out.print("Ingresa una opcion: ");
             int resultado = scanner.nextInt();
             switch (resultado) {
@@ -76,6 +75,17 @@ public class Menu {
                     customer.requestService();
                     break;
                 case 3:
+                    System.out.println("Agregando Producto...");
+                    System.out.println("Ingresa el producto que desas agregar:");
+                    String productoAgregado = scanner.nextLine();
+                    Product producto = new Product(productoAgregado);
+                    customer.getShoppingCart().addProduct(producto);
+                    System.out.println("El producto fue agregado correctamnete");
+                    break;
+                case 4:
+                    System.out.println("Eliminando Producto..");
+                    break;
+                case 5:
                     exit = true;
                     break;
                 // TODO: Crear un caso para que pueda agregar productos y eliminar en el carrito de compras

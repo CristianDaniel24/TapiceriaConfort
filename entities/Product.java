@@ -7,6 +7,10 @@ public class Product {
     private int stock;
     private Long providerId;
 
+    public Product(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
