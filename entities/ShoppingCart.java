@@ -3,14 +3,19 @@ package Proyecto.TapiceriaConfort.entities;
 import Proyecto.TapiceriaConfort.enums.ShoppingCartStatus;
 
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ShoppingCart {
     private Long id;
     private LocalDateTime createdAt;
     private ShoppingCartStatus status;
-    private List<Product> product;
+    private List<Product> products;
     private Bill bill;
+
+    public ShoppingCart() {
+        this.products = new LinkedList<>();
+    }
 
     public Long getId() {
         return id;
@@ -37,11 +42,11 @@ public class ShoppingCart {
     }
 
     public List<Product> getProduct() {
-        return product;
+        return products;
     }
 
-    public void setProduct(List<Product> product) {
-        this.product = product;
+    public void setProduct(List<Product> products) {
+        this.products = products;
     }
 
     public Bill getBill() {
@@ -59,7 +64,7 @@ public class ShoppingCart {
     }
 
     public void addProduct(Product product) {
-        this.product.add(product);
+        this.products.add(product);
     }
 
     public void removeProduct() {

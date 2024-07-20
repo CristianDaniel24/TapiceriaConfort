@@ -9,6 +9,7 @@ public class Customer extends Person implements Storable {
 
     public Customer() {
         this.service = new Service();
+        this.shoppingCart = new ShoppingCart();
     }
 
     public Customer(Long id, String name, String email, Integer phoneNumber, ShoppingCart shoppingCart, Service service) {
