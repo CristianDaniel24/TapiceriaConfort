@@ -101,8 +101,8 @@ public class Menu {
                 case 5:
                     scanner.nextLine();
                     if (customer.getShoppingCart().getProduct().size() > 0) {
-                        for (int i = 0; i < customer.getShoppingCart().getProduct().size(); i++) {
-                            System.out.println(customer.getShoppingCart().getProduct().get(i));
+                        for (Product product1 : customer.getShoppingCart().getProduct()) {
+                            System.out.println(product1.getName());
                         }
                     } else {
                         System.out.println("El carrito esta vacio :(");

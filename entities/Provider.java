@@ -43,9 +43,11 @@ public class Provider extends Person implements Storable {
     }
 
     public void supplyProduct() {
+        //TODO: crear la logica para que agregue un producto a la lista
         System.out.println("Proveer Producto");
     }
 
+    //TODO: Hacer metodo para imprimir los detalles, menos el id
     @Override
     public String serialize() {
         return super.serialize() + "," + this.companyName + "," + this.address;
