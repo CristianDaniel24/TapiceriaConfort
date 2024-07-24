@@ -7,6 +7,7 @@ import Proyecto.TapiceriaConfort.storage.Storable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+import java.util.Random;
 
 public class Service implements Storable {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -21,7 +22,7 @@ public class Service implements Storable {
     private Long userId;
 
     public Service() {
-        this.id = 1234L;
+        this.id = new Random().nextLong();
         this.price = 0.0;
         this.status = ServiceStatus.NOT_STARTED;
         this.bill = new Bill();
@@ -112,13 +113,13 @@ public class Service implements Storable {
     }
 
     public void startService() {
-        System.out.println("Starting service...");
+        this.startedAt = LocalDateTime.now();
+        this.status = ServiceStatus.IN_PROGRESS;
     }
 
     public void finishService() {
-    }
-
-    public void completeService() {
+        this.finishedAt = LocalDateTime.now();
+        this.status = ServiceStatus.DONE;
     }
 
     public void displayDetails() {

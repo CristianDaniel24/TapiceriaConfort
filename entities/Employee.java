@@ -1,10 +1,8 @@
 package Proyecto.TapiceriaConfort.entities;
 
 import Proyecto.TapiceriaConfort.constants.EntityStorage;
-import Proyecto.TapiceriaConfort.enums.ServiceStatus;
 import Proyecto.TapiceriaConfort.storage.Storable;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 public class Employee extends Person implements Storable {
@@ -40,10 +38,9 @@ public class Employee extends Person implements Storable {
         System.out.println("Performing service with id: " + serviceId);
         Optional<Service> serviceFound = EntityStorage.serviceStorage.find(new Service(), service -> service.getId().equals(serviceId));
         if (serviceFound.isPresent()) {
-            serviceFound.get().setStartedAt(LocalDateTime.now());
-            serviceFound.get().setFinishedAt(LocalDateTime.now());
-            serviceFound.get().setStatus(ServiceStatus.DONE);
-            EntityStorage.serviceStorage.save(serviceFound.get());
+            serviceFound.get().startService();
+            serviceFound.get().finishService();
+            EntityStorage.serviceStorage.update(serviceFound.get(), service -> service.getId().equals(serviceId), serviceFound.get());
         } else {
             System.out.println("Product not found");
         }
