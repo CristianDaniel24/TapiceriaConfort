@@ -80,32 +80,42 @@ public class Menu {
                     break;
                 case 3:
                     scanner.nextLine();
-                    System.out.println("Agregando Producto...");
                     System.out.println("Ingresa el producto que desas agregar:");
                     String productoAgregado = scanner.nextLine();
                     Product producto = new Product(productoAgregado);
                     customer.getShoppingCart().addProduct(producto);
+                    System.out.println("Agregando Producto...");
                     System.out.println("El producto fue agregado correctamnete");
                     System.out.println("La cantidad de productos del carrito son: " + customer.getShoppingCart().getProduct().size());
                     break;
                 case 4:
                     scanner.nextLine();
-                    System.out.println("Eliminando Producto..");
+                    if (customer.getShoppingCart().getProduct().isEmpty()) {
+                        System.out.println("El carrito se encuentra vacio :(");
+                        break;
+                    }
                     System.out.println("Ingresa el producto que deseas eliminar");
-                    String productoEliminado = scanner.nextLine();
-                    Product product = new Product(productoEliminado);
-                    customer.getShoppingCart().removeProduct(product);
-                    System.out.println("El producto fue eliminado con exito");
-                    System.out.println("La cantidad de productos restantes del carrito son: " + customer.getShoppingCart().getProduct().size());
+                    String nombreProducto = scanner.nextLine();
+                    boolean productoEliminado = false;
+                    for (Product product : customer.getShoppingCart().getProduct()) {
+                        if (product.getName().equals(nombreProducto)) {
+                            customer.getShoppingCart().removeProduct(product);
+                            productoEliminado = true;
+                            break;
+                        }
+                    }
+                    if (productoEliminado) {
+                        System.out.println("El producto a sido eliminado con exito");
+                    } else {
+                        System.out.println("El producto que desea eliminar no existe o es invalido =(");
+                    }
                     break;
                 case 5:
                     scanner.nextLine();
-                    if (customer.getShoppingCart().getProduct().size() > 0) {
-                        for (Product product1 : customer.getShoppingCart().getProduct()) {
-                            System.out.println(product1.getName());
-                        }
-                    } else {
+                    if (customer.getShoppingCart().getProduct().isEmpty()) {
                         System.out.println("El carrito esta vacio :(");
+                    } else {
+                        customer.displayDetails();
                     }
                     break;
                 case 6:
@@ -148,5 +158,4 @@ public class Menu {
             }
         }
     }
-
 }

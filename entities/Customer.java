@@ -47,6 +47,15 @@ public class Customer extends Person implements Storable {
                 "\nId: " + getId());
     }
 
+    public void displayDetails() {
+        System.out.println("------------------------------------");
+        System.out.println("Los productos del carrito son:");
+        for (Product product : shoppingCart.getProduct()) {
+            System.out.println(product.getName());
+        }
+        System.out.println("------------------------------------");
+    }
+
     @Override
     public String serialize() {
         return super.serialize() + "," + this.service.getId();

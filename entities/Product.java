@@ -34,7 +34,7 @@ public class Product {
     public void setStock(int stock) {
         this.stock = stock;
     }
-
+    
     public void displayDetails() {
         System.out.println("los detalles del productos son:" +
                 "\nName: " + name +
