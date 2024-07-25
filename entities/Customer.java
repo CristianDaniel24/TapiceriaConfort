@@ -35,7 +35,7 @@ public class Customer extends Person implements Storable {
     }
 
     public void buyProduct() {
-        System.out.println("Comprando producto..");
+        System.out.println("Buying product..");
     }
 
     public void requestService() {
