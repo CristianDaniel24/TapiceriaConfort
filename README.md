@@ -9,7 +9,7 @@ Practicing basic concepts
 
 ###### *v0.2*
 
-Este progrsms permite a los usuarios agregar productos, servicios,
-eliminar los mismos, muestra informacion sobre productos ingresados
-y tiene algunas personas almacenadas en una base de datos con sus
-respectivos accesos.
+This program allows users to add products, services,
+delete them, shows information about entered products
+and has some people stored in a database with their
+respective accesses.

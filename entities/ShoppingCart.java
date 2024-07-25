@@ -69,7 +69,5 @@ public class ShoppingCart {
 
     public void removeProduct(Product product) {
         this.products.remove(product);
-        //TODO: HACER LA COMPARACION PARA QUE ELIMINE
-        //FIXME: Para un error
     }
 }

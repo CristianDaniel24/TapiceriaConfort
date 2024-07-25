@@ -36,8 +36,8 @@ public class Main {
             } else {
                 System.out.println("User not found.\n");
                 System.out.println("Select an option: ");
-                System.out.println("    1. Try again");
-                System.out.println("    2. Exit");
+                System.out.println("1. Try again");
+                System.out.println("2. Exit");
                 String option = scanner.nextLine();
                 if (!option.equals("1")) {
                     exit = true;

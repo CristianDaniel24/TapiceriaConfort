@@ -42,14 +42,14 @@ public class Customer extends Person implements Storable {
         this.service.setUserId(this.getId());
         EntityStorage.serviceStorage.save(this.service);
         System.out.println("Service saved");
-        System.out.println("Detalles sobre el servicio:" +
-                "\nNombre: " + this.service.getName() +
+        System.out.println("Details about the service:" +
+                "\nName: " + this.service.getName() +
                 "\nId: " + getId());
     }
 
     public void displayDetails() {
         System.out.println("------------------------------------");
-        System.out.println("Los productos del carrito son:");
+        System.out.println("The products in the cart are:");
         for (Product product : shoppingCart.getProduct()) {
             System.out.println(product.getName());
         }
