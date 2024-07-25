@@ -124,9 +124,9 @@ public class Service implements Storable {
 
     public void displayDetails() {
         System.out.println("Service details are: ");
-        System.out.println("    Name: " + this.name);
-        System.out.println("    Price: " + this.price);
-        System.out.println("    Status: " + this.status);
+        System.out.println("Name: " + this.name);
+        System.out.println("Price: " + this.price);
+        System.out.println("Status: " + this.status);
     }
 
     @Override

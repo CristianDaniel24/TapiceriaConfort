@@ -30,24 +30,24 @@ public class Menu {
         //MENU PROVIDER
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nMenu del Proveedor");
-            System.out.println("1. Proveer producto");
-            System.out.println("2. Detalles del proveedor");
+            System.out.println("\nProvider Menu");
+            System.out.println("1. Provide product");
+            System.out.println("2. Supplier details");
             System.out.println("3. Exit");
-            System.out.print("Ingresa una opcion: ");
-            int resultado = scanner.nextInt();
-            switch (resultado) {
+            System.out.print("Enter an option: ");
+            int result = scanner.nextInt();
+            switch (result) {
                 case 1:
                     provider.supplyProduct();
                     break;
                 case 2:
-                    System.out.println("Detalles del proveedor");
+                    System.out.println("Supplier details");
                     break;
                 case 3:
                     exit = true;
                     break;
                 default:
-                    System.out.println("Seleccion invalida");
+                    System.out.println("Invalid selection");
             }
         }
     }
@@ -56,16 +56,16 @@ public class Menu {
         //MENU CUSTOMER
         boolean exit = false;
         while (!exit) {
-            System.out.println("\nMenu del Cliente");
-            System.out.println("1. Comprar producto");
-            System.out.println("2. Solicitar un servicio");
-            System.out.println("3. Agregar item");
-            System.out.println("4. Eliminar item");
-            System.out.println("5. Mostrar los items");
+            System.out.println("\nCustomer Menu");
+            System.out.println("1. Buy product");
+            System.out.println("2. Request a service");
+            System.out.println("3. Add item");
+            System.out.println("4. Delete item");
+            System.out.println("5. Show items");
             System.out.println("6. Exit");
-            System.out.print("Ingresa una opcion: ");
-            int resultado = scanner.nextInt();
-            switch (resultado) {
+            System.out.print("Enter an option: ");
+            int result = scanner.nextInt();
+            switch (result) {
                 case 1:
                     customer.buyProduct();
                     break;
@@ -80,40 +80,40 @@ public class Menu {
                     break;
                 case 3:
                     scanner.nextLine();
-                    System.out.println("Ingresa el producto que desas agregar:");
+                    System.out.println("Enter the product you want to add:");
                     String productoAgregado = scanner.nextLine();
                     Product producto = new Product(productoAgregado);
                     customer.getShoppingCart().addProduct(producto);
-                    System.out.println("Agregando Producto...");
-                    System.out.println("El producto fue agregado correctamnete");
-                    System.out.println("La cantidad de productos del carrito son: " + customer.getShoppingCart().getProduct().size());
+                    System.out.println("Adding Product...");
+                    System.out.println("The product was added correctly");
+                    System.out.println("The number of products in the cart are: " + customer.getShoppingCart().getProduct().size());
                     break;
                 case 4:
                     scanner.nextLine();
                     if (customer.getShoppingCart().getProduct().isEmpty()) {
-                        System.out.println("El carrito se encuentra vacio :(");
+                        System.out.println("The cart is empty :(");
                         break;
                     }
-                    System.out.println("Ingresa el producto que deseas eliminar");
-                    String nombreProducto = scanner.nextLine();
-                    boolean productoEliminado = false;
+                    System.out.println("Enter the product you want to delete");
+                    String productName = scanner.nextLine();
+                    boolean deletedProduct = false;
                     for (Product product : customer.getShoppingCart().getProduct()) {
-                        if (product.getName().equals(nombreProducto)) {
+                        if (product.getName().equals(productName)) {
                             customer.getShoppingCart().removeProduct(product);
-                            productoEliminado = true;
+                            deletedProduct = true;
                             break;
                         }
                     }
-                    if (productoEliminado) {
-                        System.out.println("El producto a sido eliminado con exito");
+                    if (deletedProduct) {
+                        System.out.println("The product has been successfully removed");
                     } else {
-                        System.out.println("El producto que desea eliminar no existe o es invalido =(");
+                        System.out.println("The product you want to delete does not exist or is invalid =(");
                     }
                     break;
                 case 5:
                     scanner.nextLine();
                     if (customer.getShoppingCart().getProduct().isEmpty()) {
-                        System.out.println("El carrito esta vacio :(");
+                        System.out.println("The cart is empty :(");
                     } else {
                         customer.displayDetails();
                     }
@@ -122,7 +122,7 @@ public class Menu {
                     exit = true;
                     break;
                 default:
-                    System.out.println("Seleccion invalida");
+                    System.out.println("Invalid selection");
             }
         }
     }
@@ -133,9 +133,9 @@ public class Menu {
         boolean exit = false;
         while (!exit) {
             System.out.println("Select an option: ");
-            System.out.println("    1. View list of services");
-            System.out.println("    2. Perform service");
-            System.out.println("    3. Exit");
+            System.out.println("1. View list of services");
+            System.out.println("2. Perform service");
+            System.out.println("3. Exit");
 
             String option = scanner.nextLine();
             switch (option) {
